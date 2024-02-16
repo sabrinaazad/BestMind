@@ -1,0 +1,315 @@
+/************************************************************************/
+/***************************** BLOG STYLES ******************************/
+/************************************************************************/
+
+.cpt-archive-template {
+    .post-grid, 
+    .search-filter-results {
+        display: flex;
+        flex-wrap: wrap;
+        .post {
+            display: block;
+            margin: 1em;
+            border-radius: 1em;
+            background-color: $white;
+            @include dropShadow();
+            @include tablet {
+                flex-basis: calc(50% - 2em);
+            }
+            @include desktop {
+                flex-basis: calc(33% - 2em);
+            }
+            @include regulardesktop {
+                flex-basis: calc(25% - 2em);
+            }
+            .image-wrapper {
+                padding: 10em;
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top;
+                text-align: center;
+                &.icon {
+                    padding: 1em;
+                    margin: 0 auto;
+                    img {
+                        height: 100px;
+                        width: auto;
+                    }
+                }
+                @include tablet {
+                    padding: 20vw;
+                }
+                @include desktop {
+                    padding: 14vw;
+                }
+                @include regulardesktop {
+                    padding: 7.7em;
+                }
+            }
+            .content {
+                h4 {
+                    color: $baseColorAlt;
+                    min-height: 2.5em;
+                }
+                text-align: center;
+                padding: 1em;
+            }
+            .btn {
+                display: inline-block;
+            }
+        }
+    }
+    &.location {
+        .sf-field-taxonomy-location-states {
+            text-align: center;
+            .sf-input-select {
+                position: relative;
+                font-family: Arial;
+                border: 1px solid $primary;
+                color: $primary;
+                text-transform: uppercase;
+                width: 20em;
+                margin: 2em auto 4em;
+                padding: 0.5em 1em;
+                @include borderRadius();
+            } 
+        }
+        .post {
+            box-shadow: none;
+            border: 0.5em solid $primary;
+            @include tablet {
+                flex-basis: calc(50% - 2em);
+            }
+            @include desktop {
+                flex-basis: calc(33% - 2em);
+            }
+            .content {
+                h4 {
+                    font-family: Playfair;
+                    font-variation-settings: 'wght' 600;
+                }
+                .add1 {
+                    margin: 1em 0 0.25em;
+                    text-transform: uppercase;
+                }
+                .add2 {
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                .phone {
+                    margin: 1.5em 0;
+                }
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.post-type-archive-services ,
+.post-type-archive-conditions,
+.post-type-archive-providers {
+    .section--text-editor {
+        h1 {
+            font-family: Playfair;
+            font-variation-settings: 'wght' 600;
+        }
+        h4 {
+            font-family: MontserratLight;
+        }
+    }
+    .post {
+        .content {
+            h4 {
+                font-size: 1em;
+                color: $baseColor;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+.post-type-archive-services {
+    background-image: url(/wp-content/themes/bestmindtheme/assets/root-services-bg.png);
+    background-size: cover;
+    background-position: center;
+}
+.post-type-archive-conditions {
+    background-image: url(/wp-content/themes/bestmindtheme/assets/root-conditions-bg.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.archive-template {
+    max-width: 1180px;
+    margin: 0 auto;
+    #nav-posts {
+        display: flex;
+        justify-content: space-between;
+        margin: 2em 0;
+        padding-top: 1em;
+        width: 100%;
+        .next {
+            text-align: right;
+        }
+    }
+    .section--aside {
+        display: none;
+    }
+    @include desktop {
+        display: flex;
+        justify-content: space-between;
+        .section--blog-archive {
+            flex-basis: 73%;
+            padding-right: 1em;
+        }
+        .section--aside {
+            display: block;
+            flex-basis: 25%;
+        }
+    }
+    .post-grid {
+        display: flex;
+        flex-wrap: wrap;
+        .post {
+            display: block;
+            margin: 0.5em;
+            border-radius: 1em;
+            background-color: $white;
+            @include dropShadow();
+            @include tablet {
+                flex-basis: calc(50% - 2em);
+            }
+            @include desktop {
+                flex-basis: calc(33% - 2em);
+            }
+            .image-wrapper {
+                padding: 10em;
+                border-top-left-radius: 1em;
+                border-top-right-radius: 1em;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top;
+                text-align: center;
+                @include tablet {
+                    padding: 20vw;
+                }
+                @include desktop {
+                    padding: 14vw;
+                }
+                @include regulardesktop {
+                    padding: 7.7em;
+                }
+            }
+            .content {
+                text-align: center;
+                padding: 1em;
+                h3 {
+                    font-size: 1.25em;
+                    min-height: 2.5em;
+                }
+                .btn {
+                    display: inline-block;
+                }   
+            }
+        }
+    }
+
+}
+
+.single-template {
+    &.blog {
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+    &.provider {
+        .single {
+            text-align: center;
+            
+            @include tablet {
+                text-align: left;
+                &.two-col {
+                    display: flex;
+                    justify-content: space-around;
+                    .col:first-child {
+                        flex-basis: 30%;
+                    }
+                    .col:nth-child(2) {
+                        flex-basis: 65%;
+                    }
+                }
+            }
+            .image-wrapper {
+                @include borderRadius();
+                img {
+                    border: 0.75em solid $brightblue;
+                    @include borderRadius();
+                }
+            }
+            .preheading {
+                color: $lightergray;
+                font-size: 1.25em;
+                margin: 0.5em 0;
+            }
+            .specialty {
+                margin: 0.5em 0;
+                display: flex;
+                flex-direction: column;
+            }
+            @include tablet {
+                .specialty {
+                    flex-wrap: wrap;
+                    max-height: 6em;
+                    max-width: 40em;
+                }
+            }
+            .btn {
+                display: inline-block;
+            }
+        }
+    }
+    &.blog {
+        .section--aside {
+            display: none;
+            @include desktop {
+                display: block;
+            }
+        }
+        .date, .category {
+            margin: 1em 0;
+        }
+        .post-categories {
+            padding-left: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            .section--single {
+                flex-basis: 72%;
+            }
+            .section--aside {
+                flex-basis: 25%;
+            }
+        }
+        #nav-posts {
+            display: flex;
+            justify-content: space-between;
+            margin: 2em 0;
+            padding-top: 1em;
+            width: 100%;
+            .next {
+                text-align: right;
+                flex-basis: 40%;
+            }
+            .prev {
+                flex-basis: 40%;
+            }
+        }
+    }
+}

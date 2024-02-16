@@ -1,0 +1,323 @@
+/************************************************************************/
+/***************************** HEADER STYLES ******************************/
+/************************************************************************/
+
+
+.topbar {
+    background-color: $secondary;
+    .announcement {
+        background-color: $primary;
+        color: $white;
+        font-family: MontserratSemiBold;
+        padding: 0.75em 0;
+        @include dropShadow();
+    }
+    .content {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75em;
+        @include regulardesktop {
+            padding: 0.75em 0;
+        }
+        .phone {
+            position: relative;
+            margin-left: 2em;
+            &::before {
+                content: " ";
+                background-image: url("/wp-content/themes/bestmindtheme/assets/icon-phone.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 1.5em;
+                height: 1.5em;
+                position: absolute;
+                left: -2em;
+
+            }
+        }
+        .link {
+            color: $brightblue;
+            font-family: MontserratSemiBold, Helvetica, Arial, sans-serif;
+            &:hover {
+                color: $white;
+            }
+        }
+        .btn {
+            padding: 0.25em 1.5em;
+            margin-left: 2em;
+        }
+    }
+}
+
+
+
+
+.main-nav {
+    position: relative;
+    z-index: 10;
+    &.sticky-margin {
+        margin-top: 96.6px;
+        @include tablet {
+            margin-top: 136.5px;
+        }
+        
+    }
+    .sticky-wrapper {
+        background-color: $white;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        @include dropShadow();
+        &.sticky {
+            position: fixed;
+            .main-nav__drawer.is-open {
+                top: 20vw;
+                @include tablet {
+                    top: 0;
+                }
+            }
+        }
+    }
+    .main-nav__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 0.5em;
+        @include tablet {
+            padding: 0;
+        }
+
+        .main-nav__logo {
+        	z-index: 3;
+            width: 12em;
+        }
+    
+        .main-nav__bar {
+            position: relative;
+            z-index: 3;
+
+            .hamburger-button {
+                width: 2.5rem;
+                height: 2rem;
+                background-color: $transparent;
+                border: none;
+
+                .hamburger-button__bar--top,
+                .hamburger-button__bar--middle,
+                .hamburger-button__bar--bottom {
+                    width: 30px;
+                    height: 6px;
+                    border-radius: 10px;
+                    color: $secondary;
+                    background: $secondary;
+                    position: absolute;
+                    @include transitionAll();
+                }
+
+                .hamburger-button__bar--top {
+                    top: 5px;
+                }
+
+                .hamburger-button__bar--middle {
+                    top: 15px;
+                }
+
+                .hamburger-button__bar--bottom {
+                    top: 25px;
+                }
+
+                &.is-open {
+
+                    .hamburger-button__bar--top,
+                    .hamburger-button__bar--middle,
+                    .hamburger-button__bar--bottom {
+                        @include transitionAll();
+                    }
+
+                    .hamburger-button__bar--top {
+                        -webkit-transform: rotate(45deg);
+                        -moz-transform: rotate(45deg);
+                        -o-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                        top: 15px;
+                        left: 8px;
+                    }
+
+                    .hamburger-button__bar--middle {
+                        width: 0%;
+                        opacity: 0;
+                    }
+
+                    .hamburger-button__bar--bottom {
+                        -webkit-transform: rotate(-45deg);
+                        -moz-transform: rotate(-45deg);
+                        -o-transform: rotate(-45deg);
+                        transform: rotate(-45deg);
+                        top: 15px;
+                        left: 8px;
+                    }
+
+                }
+            }  
+        }
+
+        .main-nav__drawer {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 20vw;
+            right: -25em;
+            z-index: 2;
+            background-color: $white;
+            @include dropShadow();
+            @include transition(right 1s);
+            @include tablet {
+                transition: none;
+                position: relative;
+                width: 45em;
+                height: auto;
+                top: 0;
+                right: 0;
+                box-shadow: none;
+            }
+            @include regulardesktop {
+                width: 50em;
+            }
+            &.is-open {
+                right: 0em;
+            }
+            .primary-nav {
+                padding-left: 0;
+                list-style-type: none;
+                overflow: scroll;
+                height: 75vh;
+                margin-top: 2em;
+                background-color: $white;
+                @include tablet {
+                    padding: 0;
+                    margin-top: 1em;
+                    height: auto;
+                    display: flex;
+                    justify-content: space-between;
+                        overflow: initial;
+                }
+                > li {
+                    padding: 1em;
+                    a {
+                        font-family: MontserratSemiBold;
+                        color: $primary;
+                        &:hover {
+                            color: $brightblue;
+                        }
+                    }
+                    @include tablet {
+                        padding: 1em 0.25em;
+                    }
+                    @include regulardesktop {
+                        padding: 1em;
+                    }
+                    &.current-menu-item > a, 
+                    &.current-menu-ancestor > a  {
+                        color: $brightblue;
+                        border-bottom: 2px solid $brightblue;
+                    }
+                    &.menu-item-has-children {
+                        padding-bottom: 0;
+
+                        > a {
+                            &:hover {
+                                color: $brightblue;
+                            }
+                        }
+                        @include tablet {
+                            position: relative;
+                            .sub-menu  {
+                                display: none;
+                                position: absolute;
+                                background-color: $secondary;
+                                width: 16em;
+                                padding-bottom: 1em;
+                                top: 3em;
+                                list-style-type: none;
+                                a {
+                                    color: $white;
+                                    &:hover {
+                                        color: $brightblue;
+                                    }
+                                }
+                                .current-menu-item > a  {
+                                    color: $brightblue;
+                                }
+                            }
+
+                            &:hover {
+                                .sub-menu {
+                                    display: block;
+                                }
+                            }
+                        }
+                        .sub-menu  {
+                            list-style-type: none;
+                            padding-top: 1em;
+
+                            li  {
+                                padding: 1em;
+                                position: relative;
+                                
+                                a {
+
+                                    &::before {
+                                        font-family: fontawesome;
+                                        content: "\f101";
+                                        position: absolute;
+                                        left: -0.5em;
+                                        transition: left 250ms ease-in-out;
+                                    }
+
+                                    &:hover {
+                                        &::before {
+                                            font-family: fontawesome;
+                                            content: "\f101";
+                                            position: absolute;
+                                            left: -0em;
+        
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.alt {
+        .btn-secondary {
+            font-size: 0.75em;
+            @include tablet {
+                font-size: 1em;
+                margin: 0 1em;
+            }
+            @include desktop {
+                margin: 0;
+            }
+        }
+        @include tablet {
+            .main-nav__wrapper .main-nav__drawer {
+                width: auto;
+            }
+        }
+        &.sticky-margin {
+            margin-top: 25vw;
+            @include tablet {
+                margin-top: 93px;
+            }
+            
+        }
+        
+    }
+}
+

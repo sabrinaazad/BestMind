@@ -1,0 +1,300 @@
+/************************************************************************/
+/*********************** GLOBAL DEFAULTS & RESETS ***********************/
+/************************************************************************/
+
+:root {
+    --body-font: MontserratRegular, Helvetica, Arial, sans-serif;
+    --heading-font: serif;
+    --section-padding: 1rem;
+    --link-color-example: black;
+    font-size: $mainFontSize;
+}
+
+@include tablet {
+    :root {
+        --section-padding: 2rem;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+
+html {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: MontserratRegular, Helvetica, Arial, sans-serif;
+    font-size: 4.27vw;
+    background-color: $white;
+    color: $baseColor;
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    @include tablet {
+    	font-size: $mainFontSize;
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: MontserratSemiBold, Helvetica, Arial, sans-serif;
+    line-height: 1.25;
+    margin: 0.25em 0;
+    color: $primary;
+}
+h1 {
+	font-size: 2em;
+    @include tablet {
+        font-size: 2.5em;
+    }
+}
+h2 {
+	font-size: 1.75em;
+    @include tablet {
+        font-size: 2em;
+    }
+}
+h3 {
+	font-size: 1.5em;
+    @include tablet {
+        font-size: 1.75em;
+    }
+}
+h4 {
+	font-size: 1.25em;
+    @include tablet {
+        font-size: 1.5em;
+    }
+}
+p {
+    font-size: 1em;
+    font-family: MontserratRegular;
+    font-weight: 500;
+    color: $lightgray;
+    line-height: 1.2;
+}
+
+a {
+    font-family: MontserratRegular, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: $baseColorAlt;
+    transition: 0.25s;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+        color: $brightblue;
+    }
+    &:active {
+        color: $brightblue;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+/************************************************************************/
+/***************************** GLOBAL CLASSES ***************************/
+/************************************************************************/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.align--center {
+    text-align: center;
+}
+
+.align--left {
+    text-align: left;
+}
+
+.align--right {
+    text-align: right;
+}
+
+.preheading {
+	font-family: MontserratLight;
+}
+
+.heading {
+	font-family: Playfair;
+    font-variation-settings: 'wght' 600;
+}
+
+.section {
+    width: 100%;
+    max-width: 1180px;
+    padding: 2em 1em;
+    margin: 0 auto;
+    @include tablet {
+        padding: 4em 2em;
+    }
+}
+
+.section-wrapper {
+    max-width: 1180px;
+	margin: 0 auto;
+}
+
+.image-wrapper {
+    width: var(--image-width, auto);
+    height: var(--image-height, auto);
+    margin: 0 auto;
+}
+
+.btn {
+    font-family: MontserratSemiBold; 
+    font-size: 1em;
+    padding: 0.75em 1em;
+    margin: 0.5em 0;
+    transition: 0.25s;
+    text-transform: uppercase;
+    @include borderRadius();
+    @include dropShadow();
+}
+
+.btn-primary {	
+	background-color: $primary;
+    border: 0.2em solid $primary;
+    color: $white;
+    &:hover {
+        background-color: $white;
+        border: 0.2em solid $primary;
+        color: $primary;
+    }
+}
+
+.btn-secondary {
+    background-color: $tertiary;
+    border: 0.2em solid $tertiary;
+    color: $white;  
+    &:hover {
+        background-color: $white;
+        border: 0.2em solid $tertiary;
+        color: $tertiary;
+    }
+}
+
+.back-btn {
+    display: block;
+    margin: 1em 0;
+}
+
+/******************* HELPERS *********************/
+
+.desktop-only {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.mobile-only {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.no-padded-sides {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.no-padded-top {
+    padding-top: 0;
+}
+
+.no-padded-bottom {
+    padding-bottom: 0;
+}
+
+/******************* NATIVE PAGES *********************/
+.section.error {
+    @include tablet {
+        min-height: calc(100vh - 396px);
+    }
+}
+
+
+//BLOG SIDEBAR CATEGORY LIST STYLE EDITS
+.wp-block-categories-list.wp-block-categories{
+    list-style: none;
+    padding-left: 0;
+
+}
+/******************* SLICK SLIDER *********************/
+.slick-slider {
+    .slick-track {
+        display: flex;
+        .slick-slide {
+            display: flex;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .slick-dots  {
+        bottom: -3em;
+        li {
+            button:before {
+                color: $white;
+                opacity: 1;
+                font-size: 15px;
+            }
+            &.slick-active {
+                button:before {
+                    color: $tertiary; 
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

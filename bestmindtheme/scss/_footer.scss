@@ -1,0 +1,109 @@
+/************************************************************************/
+/**************************** FOOTER STYLES *****************************/
+/************************************************************************/
+
+.footer {
+    text-align: center;
+    background-color: $footerBG;
+    padding-bottom: 4em;
+    @include dropShadow();
+    &.alt {
+        @include desktop {
+            .utility-container {
+                justify-content: center;
+                .logo-container {
+                    margin-right: 0;
+                }
+            }   
+        }
+    }
+    @include tablet {
+        padding-bottom: 0;
+    }
+    .logo-container {
+        width: 15em;
+        margin: 0 auto;
+    }
+    .nav-container {
+        li {
+            flex-basis: 15%;
+            @include tablet {
+                flex-basis: 5%;
+                margin: 0 0.5em;
+            }
+        }
+        .social-nav {
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    }
+    .menu-container {
+        .footer-nav {
+            padding-left: 0;
+            list-style: none;
+            @include tablet {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            li {
+                text-transform: uppercase;
+                padding: 1em 0;
+                @include tablet {
+                    flex-basis: 24%;
+                }
+                a {
+                    color: $brightblue;
+                    &:hover {
+                        color: $tertiary;
+                    }
+                }
+            }
+        }
+    }
+    .info-container {
+        margin-top: 3em;
+        font-size: 0.75em;
+    }
+    @include tablet {
+        .utility-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .logo-container {
+                margin: unset;
+                flex-basis: 25%;
+            }
+            .menu-container {
+                flex-basis: 85%;
+
+            }
+            .space-container {
+                flex-basis: 25%;
+
+            }
+        }
+    }
+    @include desktop {
+        .utility-container {
+            .logo-container {
+                margin: unset;
+                flex-basis: 20%;
+            }
+            .menu-container {
+                flex-basis: 45%;
+            }
+            .space-container {
+                flex-basis: 20%;
+            }
+        }
+        .nav-container {
+            justify-content: center;
+        }
+    }   
+}
